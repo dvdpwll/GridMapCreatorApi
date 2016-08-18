@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :elements, except: [:new, :edit]
+  resources :elements, except: [:new, :edit]
   resources :maps, except: [:new, :edit]
   resources :maps, except: [:new, :edit]
   resources :maps, except: [:new, :edit]

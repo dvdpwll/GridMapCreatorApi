@@ -1,1 +1,1 @@
-curl --include --request DELETE http://localhost:3000/maps/1
+curl --include --request DELETE http://localhost:3000/maps/2

@@ -1,4 +1,5 @@
-class MapsController < ApplicationController
+# jalkfdj
+class MapsController < OpenReadController
   before_action :set_map, only: [:show, :update, :destroy]
 
   # GET /maps
@@ -18,7 +19,8 @@ class MapsController < ApplicationController
   # POST /maps
   # POST /maps.json
   def create
-    @map = Map.new(map_params)
+    @map = current_user.maps.build(map_params)
+    # Map.new(map_params)
 
     if @map.save
       render json: @map, status: :created, location: @map
@@ -49,11 +51,12 @@ class MapsController < ApplicationController
 
   private
 
-    def set_map
-      @map = Map.find(params[:id])
-    end
+  def set_map
+    @map = current_user.maps.find(params[:id])
+    # Map.find(params[:id])
+  end
 
-    def map_params
-      params.require(:map).permit(:name)
-    end
+  def map_params
+    params.require(:map).permit(:name)
+  end
 end
