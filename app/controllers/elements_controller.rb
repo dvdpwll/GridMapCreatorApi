@@ -1,3 +1,4 @@
+# jdkvlsv ApplicationController     OpenReadController
 class ElementsController < ApplicationController
   before_action :set_element, only: [:show, :update, :destroy]
 
@@ -18,7 +19,9 @@ class ElementsController < ApplicationController
   # POST /elements
   # POST /elements.json
   def create
+    # @element = current_map.elements.build(element_params)
     @element = Element.new(element_params)
+    # @map = current_user.maps.build(map_params)
 
     if @element.save
       render json: @element, status: :created, location: @element
@@ -31,6 +34,7 @@ class ElementsController < ApplicationController
   # PATCH/PUT /elements/1.json
   def update
     @element = Element.find(params[:id])
+    # @map = current_user.maps.build(map_params)
 
     if @element.update(element_params)
       head :no_content
@@ -49,11 +53,13 @@ class ElementsController < ApplicationController
 
   private
 
-    def set_element
-      @element = Element.find(params[:id])
-    end
+  def set_element
+    # @element = current_map.elements.find(params[:id])
+    @element = Element.find(params[:id])
+    # @map = current_user.maps.find(params[:id])
+  end
 
-    def element_params
-      params.require(:element).permit(:thing, :order, :map_id)
-    end
+  def element_params
+    params.require(:element).permit(:thing, :order, :map_id)
+  end
 end
