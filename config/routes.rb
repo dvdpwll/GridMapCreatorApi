@@ -9,8 +9,11 @@ Rails.application.routes.draw do
   resources :elements, only: [:index, :show, :create, :update, :destroy]
   resources :maps, only: [:index, :show, :create, :update, :destroy]
 
-  # get '/users/:id/maps' => 'users#maps', :as => :user_maps
   resources :users do
     resources :maps
+  end
+
+  resources :maps do
+    resources :elements
   end
 end

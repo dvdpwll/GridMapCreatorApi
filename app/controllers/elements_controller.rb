@@ -5,7 +5,9 @@ class ElementsController < ApplicationController
   # GET /elements
   # GET /elements.json
   def index
-    @elements = Element.all
+    @elements = Map.find(params[:map_id]).elements
+    # @maps = User.find(params[:user_id]).maps
+    # @elements = Element.all
 
     render json: @elements
   end
