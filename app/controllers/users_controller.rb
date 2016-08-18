@@ -44,6 +44,12 @@ class UsersController < ProtectedController
     end
   end
 
+  # GET 'users/:id/maps' => 'users#maps', :as => :user_maps
+  def maps
+    @user = User.find(params[:id])
+    @maps = @user.maps
+  end
+
   def index
     render json: User.all
   end

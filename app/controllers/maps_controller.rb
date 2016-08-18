@@ -5,7 +5,13 @@ class MapsController < OpenReadController
   # GET /maps
   # GET /maps.json
   def index
-    @maps = Map.all
+    @maps = User.find(params[:user_id]).maps
+    # @user = User.find(params[:user_id])
+    # @maps = @user.maps
+    # @maps = Map.all
+    # @maps = current_user.maps.all
+
+    # @posts = User.find(params[:user_id]).posts
 
     render json: @maps
   end
