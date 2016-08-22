@@ -58,6 +58,6 @@ class MapsController < OpenReadController
   end
 
   def map_params
-    params.require(:map).permit(:name)
+    params.require(:map).permit(:name, :length, :height, :user_id)
   end
 end
