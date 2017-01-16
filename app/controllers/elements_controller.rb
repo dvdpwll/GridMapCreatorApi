@@ -62,6 +62,6 @@ class ElementsController < ApplicationController
   end
 
   def element_params
-    params.require(:element).permit(:thing, :order, :map_id)
+    params.require(:element).permit(:thing, :order, :map_id, :layer)
   end
 end
